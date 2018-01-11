@@ -1,4 +1,4 @@
-
+import _ from 'lodash'
 import Formsy from 'formsy-react'
 
 import TextInput from './TextInput'
@@ -15,11 +15,11 @@ const RELAXED_URL_REGEX = /^(http(s?):\/\/)?(www\.)?[a-zA-Z0-9\.\-\_]+(\.[a-zA-Z
 
 // validations
 Formsy.addValidationRule('isRequired', (values, value, array) => { // eslint-disable-line no-unused-vars
-  return value && value.trim().length > 0
+  return value && ( _.isArray(value) ? value.length > 0 : value.trim().length > 0) ? true : false // eslint-disable-line no-unneeded-ternary
 })
 
 Formsy.addValidationRule('isRelaxedUrl', (values, value, array) => { // eslint-disable-line no-unused-vars
-  return !value || RELAXED_URL_REGEX.test(value)
+  return !value || RELAXED_URL_REGEX.test(value) ? true : false // eslint-disable-line no-unneeded-ternary
 })
 
 export default {
