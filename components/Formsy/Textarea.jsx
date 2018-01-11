@@ -29,7 +29,7 @@ class Textarea extends Component {
         {
           this.props.autoResize ?
             <AutoresizeTextarea
-              rows={rows}
+              minRows={rows}
               cols={cols}
               id={name}
               name={name}
