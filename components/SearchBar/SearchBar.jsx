@@ -73,7 +73,6 @@ class SearchBar extends Component {
 
   handleSuggestionsUpdate(requestNo, data) {
     if (requestNo === this.state.maxRequestNo) {
-      console.log('SUGGESTIONS', data)
       this.setState({loading: false, suggestions: data, selectedSuggestionIdx: null})
     }
   }
